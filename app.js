@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
+
+
+
 mongoose.Promise= global.Promise;
-mongoose.connect('mongodb://localhost/calendarproject');
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/calendarproject');
 
 
 const app= express();
