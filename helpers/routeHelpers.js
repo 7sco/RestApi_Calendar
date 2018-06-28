@@ -56,9 +56,9 @@ module.exports = {
 		}),
 
 		dayRemainderSchema: Joi.object().keys({
-			title: Joi.string().required(),
-			startTime: Joi.string().required(),
-			endTime: Joi.string().required()
+			title: Joi.string(),
+			startTime: Joi.string(),
+			endTime: Joi.string()
 
 		}),
 

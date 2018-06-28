@@ -6,7 +6,7 @@ const {validateParam, validateBody, schemas} = require('../helpers/routeHelpers'
 
 router.route('/')
 	.get(RemaindersController.index)
-	.post(validateBody(schemas.newRemainderSchema), RemaindersController.newRemainder);
+	.post(validateBody(schemas.remainderSchema), RemaindersController.newRemainder);
 	
 
 router.route('/:remainderId')

@@ -49,16 +49,21 @@ module.exports={
 	
 	newDayRemainder:async(req, res, next)=> {
 		const {dayId}= req.value.params;
+		console.log('id:', dayId);
 		//Create new Car
 		const newRemainder= new Remainder(req.value.body);
+		console.log('newRemainder:', newRemainder);
 		//Get user
 		const day= await Day.findById(dayId); 
+		console.log('day:', day);
 		//Assign user as car seller
 		newRemainder.dayRemainder=day;
 		//save the car
+		console.log('day:', day);
 		await newRemainder.save();
 		//add Car to the users selling array
 		day.remainder.push(newRemainder);
+		console.log('day:', day);
 		//save the User
 		await day.save();
 		res.status(201).json(newRemainder);

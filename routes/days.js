@@ -26,8 +26,8 @@ router.route('/:dayId')
 
 router.route('/:dayId/remainders')
 	.get(validateParam(schemas.idSchema,'dayId'),DaysController.getDayRemainders)
-	.post([validateParam(schemas.idSchema, 'dayId')
-		,validateBody(schemas.remainderSchema)]
+	.post([validateParam(schemas.idSchema,'dayId')
+		,validateBody(schemas.dayRemainderSchema)]
 		,DaysController.newDayRemainder);
 
 module.exports= router;

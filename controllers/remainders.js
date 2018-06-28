@@ -25,6 +25,7 @@ module.exports={
 
 
 	getRemainder: async(req, res, next)=> {
+		console.log('getRemainder: ', req.value.params.remainderId);
 		const remainder= await Remainder.findById(req.value.params.remainderId);
 		res.status(200).json(remainder)
 	},
@@ -41,6 +42,7 @@ module.exports={
 	},
 
 	updateRemainder: async(req, res, next)=> {
+		console.log('updateRemainder: ', req.value.params.remainderId);
 		const {remainderId} = req.value.params;
 
 		const newRemainder = req.value.body;
@@ -51,6 +53,8 @@ module.exports={
 	},
 
 	deleteRemainder: async(req, res, next)=> {
+				console.log('deleteRemainder: ', req.value.params.remainderId);
+
 		const {remainderId} = req.value.params;
 		//Get a remainder
 		const remaind= await Remainder.findById(remainderId);
